@@ -1,0 +1,29 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://bys.nwu.edu.cn:3306/graduation_album?serverTimezone=UTC
+    username: root
+    password: graduation_album123
+    # 做缓存
+  redis:
+    host: bys.nwu.edu.cn
+    password: graduation_album123
+    port: 6379
+    client-type: jedis
+  jdbc:
+    template:
+      query-timeout: 3 # 查询超时时间，以秒为单位
+
+# 获取微信朋友圈， 参考微信官方文档  https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html#62
+wx:
+  # 公众号的 appid
+  appid: wxa09e7229eb1352d8
+  # 公众号密钥
+  secret: 780d4efda1f2a97c910b839276f29c46
+  # sha1 加密的随机串
+  noncestr: 'graduation'
+  #应用的地址
+  url: 'http://bys.nwu.edu.cn:8080'
